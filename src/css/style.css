@@ -1,0 +1,54 @@
+/* styles.css */
+body {
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.yellow {
+    display: block;
+    height: 100vh;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+.black-div {
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+
+.btn-del {
+    background-color: red;
+    color: white;
+    border-radius: 6px;
+
+}
+
+
+ul li {
+    padding: 10px;
+    border: 1px solid white;
+    margin-bottom: 12px;
+    border-radius: 6px;
+
+
+}
+
+.compl-btn {
+    margin-left: 20px;
+    background-color: blue;
+    color: white;
+    margin-right: 8px;
+    font-size: 14px;
+    width: 80px;
+    height: 28px;
+    text-decoration: none;
+
+}
