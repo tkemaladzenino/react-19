@@ -31,6 +31,7 @@ const AppTask = () => {
       if (isTaskCompleted) {
         setCompletedCount((prevCount) => prevCount - 1);
       }
+
       return updatedTasks;
     });
   };
@@ -46,33 +47,32 @@ const AppTask = () => {
         <ul>
           <p style={{ color: 'white', fontSize: '26px' }}>Pending tasks ({completedCount}) </p>
           {tasks.map((task, index) => (
-            <li key={index} >
-              <label className="checkbox-label" type="checkbox" >
+            <li key={index} style={{ color: 'white', display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+              <label className="checkbox-label" style={{ display: 'flex', alignItems: 'center', marginRight: '10px' }}>
                 <span style={{ flex: 1, textDecoration: task.completed ? 'line-through' : 'none' }}>
                   {task.text}
                 </span>
-                <button
-                  className='compl-btn' onClick={(e) => {
-                    e.stopPropagation(); // Prevent event propagation to the li element
-                    toggleCompletion(index);
-                  }} >
+                <button className='compl-btn' onClick={() => toggleCompletion(index)}>
                   {task.completed ? 'Completed' : 'Complete'}
                 </button>
               </label>
               <span style={{ flex: 'none' }}>
-                <button className="btn-del" onClick={() => deleteTask(index)}>  x </button>
+                <button className="btn-del" onClick={() => deleteTask(index)}>
+                  x
+                </button>
               </span>
             </li>
           ))}
         </ul>
+
         <div className="add-input-div d-flex justify-content-center">
-          <input type="text" value={newTask} onChange={(e) => setNewTask(e.target.value)}
-            placeholder="Add a new task" onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                e.preventDefault();
-                addTask();
-              }
-            }} />
+          <input
+            type="text"
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
+            placeholder="Add a new task"
+            onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addTask())}
+          />
         </div>
       </div>
     </div>
@@ -80,7 +80,6 @@ const AppTask = () => {
 };
 
 export default AppTask;
-
 
 
 
